@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080f1d">
+  <meta name="description" content="Medjy's personal portfolio in biology, biotechnology, laboratory experience, and leadership.">
+  <title>Medjy | Biology & Biotechnology</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080f1d;
+      --panel: #0e192b;
+      --panel-light: #14233a;
+      --text: #edf3ff;
+      --muted: #a5b4ca;
+      --accent: #8ab4ff;
+      --border: #253650;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 15, 29, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.83rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 88px 0;
+      border-bottom: 1px solid rgba(37, 54, 80, 0.65);
+    }
+
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      padding: 105px 0;
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(3.1rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.065em;
+      margin-bottom: 27px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #08111f;
+      border-color: var(--accent);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.045em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 690px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .about-content {
+      min-height: 100px;
+    }
+
+    .experience-grid,
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+      min-width: 0;
+    }
+
+    .card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .card p + p {
+      margin-top: 12px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #c8d9f4;
+      font-size: 0.78rem;
+      background: rgba(138, 180, 255, 0.05);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .photo-slot {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel-light);
+    }
+
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      display: none;
+      width: 100%;
+      height: 100%;
+      min-height: 130px;
+      padding: 15px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    .photo-placeholder strong {
+      color: #dbe7fa;
+      font-weight: 600;
+    }
+
+    .photo-placeholder span {
+      font-size: 0.75rem;
+      overflow-wrap: anywhere;
+    }
+
+    .photo-slot img:not([src]),
+    .photo-slot img[src=""] {
+      display: none;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 24px;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 22px 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 28px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--bg);
+    }
+
+    .timeline-item h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item .meta {
+      color: var(--accent);
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .leadership-photo {
+      max-width: 540px;
+      margin-bottom: 25px;
+    }
+
+    .leadership-photo .photo-slot {
+      aspect-ratio: 16 / 9;
+    }
+
+    .leadership-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .leadership-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 210px;
+    }
+
+    .editable-note {
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .award-card {
+      padding: 13px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      min-width: 0;
+    }
+
+    .award-card .photo-slot {
+      aspect-ratio: 4 / 3;
+      margin-bottom: 14px;
+    }
+
+    .award-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 0.97rem;
+      margin: 0 4px 5px;
+    }
+
+    .award-card p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin: 0 4px 5px;
+    }
+
+    .contact-card {
+      padding: 32px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 570px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      padding: 27px 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a {
+        font-size: 0.78rem;
+      }
+
+      .leadership-grid,
+      .awards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 30px, var(--max-width));
+      }
+
+      nav {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        gap: 10px 17px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero {
+        min-height: 440px;
+        padding: 80px 0;
+      }
+
+      .experience-grid,
+      .leadership-grid,
+      .awards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        padding: 21px;
+      }
+
+      .contact-card {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">MEDJY.</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Curiosity into<br><span>discovery.</span></h1>
+
+          <p>
+            I'm Medjy, a student building a foundation for a future in
+            biological research. This portfolio documents my laboratory
+            experience, academic development, and work beyond the classroom.
+          </p>
+
+          <div class="hero-links">
+            <a class="button primary" href="#experience">Explore my experience</a>
+            <a class="button" href="#contact">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Introduction</div>
+          <h2>About Me</h2>
+        </div>
+
+        <!-- Write your own About Me content here whenever you're ready. -->
+        <div class="about-content"></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Hands-on learning</div>
+          <h2>Biotechnology experience</h2>
+          <p>
+            Laboratory training, scientific techniques, and experiences
+            that have helped me develop practical skills.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="card">
+            <h3>Laboratory experience</h3>
+            <p>
+              Add details about your biotechnology coursework, internships,
+              laboratory training, and the experiments you have completed.
+              Describe what you did, what you learned, and the techniques you used.
+            </p>
+
+            <div class="tags">
+              <span class="tag">PCR</span>
+              <span class="tag">Gel electrophoresis</span>
+              <span class="tag">DNA ligation</span>
+              <span class="tag">Transformation</span>
+              <span class="tag">Restriction digestion</span>
+              <span class="tag">Pipetting</span>
+              <span class="tag">Column purification</span>
+              <span class="tag">CRISPR</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Training & professional development</h3>
+            <p>
+              Use this space to describe your biotechnology internship,
+              scientific courses, workshops, and other relevant training.
+              Include the organization, dates, and the skills you developed.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Lab safety</span>
+              <span class="tag">Scientific communication</span>
+              <span class="tag">Research methods</span>
+              <span class="tag">Problem-solving</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="gallery">
+          <div class="photo-slot">
+            <img src="images/lab-1.jpg" alt="Laboratory experience photo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder">
+              <strong>Laboratory photo 1</strong>
+              <span>images/lab-1.jpg</span>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <img src="images/lab-2.jpg" alt="Biotechnology training photo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder">
+              <strong>Laboratory photo 2</strong>
+              <span>images/lab-2.jpg</span>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <img src="images/lab-3.jpg" alt="Scientific experiment photo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder">
+              <strong>Laboratory photo 3</strong>
+              <span>images/lab-3.jpg</span>
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <img src="images/lab-4.jpg" alt="Laboratory equipment or project photo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder">
+              <strong>Laboratory photo 4</strong>
+              <span>images/lab-4.jpg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Academic journey</div>
+          <h2>Education</h2>
+          <p>
+            Coursework and academic experiences supporting my academic development.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>High school</h3>
+            <div class="meta">Boston, Massachusetts · Expected graduation 2027</div>
+            <p>
+              Coursework, student leadership, academic organizations,
+              and extracurricular activities preparing me for college.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Dual-enrollment coursework</h3>
+            <div class="meta">College-level learning</div>
+            <p>
+              Add your college courses, institution, and dates here.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Additional academic learning</h3>
+            <div class="meta">Courses and programs</div>
+            <p>
+              Add relevant advanced courses, workshops, academic programs,
+              or independent learning experiences here.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Beyond the classroom</div>
+          <h2>Leadership & volunteering</h2>
+          <p>
+            Add your leadership roles, activities, and community involvement here.
+          </p>
+        </div>
+
+        <div class="leadership-photo">
+          <div class="photo-slot">
+            <img src="images/leadership-1.jpg" alt="Leadership or volunteering photo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder">
+              <strong>Leadership photo</strong>
+              <span>images/leadership-1.jpg</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="leadership-grid">
+          <article class="card leadership-card">
+            <h3>Student government</h3>
+            <p>Add your student government experience here.</p>
+          </article>
+
+          <article class="card leadership-card">
+            <h3>Other leadership</h3>
+            <p>Add your other leadership roles and activities here.</p>
+          </article>
+
+          <article class="card leadership-card">
+            <h3>Volunteering & community service</h3>
+            <p>Add your volunteering and community service experience here.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Recognition</div>
+          <h2>Awards & certificates</h2>
+          <p>
+            Add your awards, certificates, and other accomplishments here.
+          </p>
+        </div>
+
+        <div class="awards-grid">
+          <article class="award-card">
+            <div class="photo-slot">
+              <img src="images/award-1.jpg" alt="Award or certificate 1"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">
+                <strong>Certificate 1</strong>
+                <span>images/award-1.jpg</span>
+              </div>
+            </div>
+            <h3>Award or certificate name</h3>
+            <p>Organization · Year</p>
+          </article>
+
+          <article class="award-card">
+            <div class="photo-slot">
+              <img src="images/award-2.jpg" alt="Award or certificate 2"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">
+                <strong>Certificate 2</strong>
+                <span>images/award-2.jpg</span>
+              </div>
+            </div>
+            <h3>Award or certificate name</h3>
+            <p>Organization · Year</p>
+          </article>
+
+          <article class="award-card">
+            <div class="photo-slot">
+              <img src="images/award-3.jpg" alt="Award or certificate 3"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">
+                <strong>Certificate 3</strong>
+                <span>images/award-3.jpg</span>
+              </div>
+            </div>
+            <h3>Award or certificate name</h3>
+            <p>Organization · Year</p>
+          </article>
+
+          <article class="award-card">
+            <div class="photo-slot">
+              <img src="images/award-4.jpg" alt="Award or certificate 4"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">
+                <strong>Certificate 4</strong>
+                <span>images/award-4.jpg</span>
+              </div>
+            </div>
+            <h3>Award or certificate name</h3>
+            <p>Organization · Year</p>
+          </article>
+
+          <article class="award-card">
+            <div class="photo-slot">
+              <img src="images/award-5.jpg" alt="Award or certificate 5"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">
+                <strong>Certificate 5</strong>
+                <span>images/award-5.jpg</span>
+              </div>
+            </div>
+            <h3>Award or certificate name</h3>
+            <p>Organization · Year</p>
+          </article>
+
+          <article class="award-card">
+            <div class="photo-slot">
+              <img src="images/award-6.jpg" alt="Award or certificate 6"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">
+                <strong>Certificate 6</strong>
+                <span>images/award-6.jpg</span>
+              </div>
+            </div>
+            <h3>Award or certificate name</h3>
+            <p>Organization · Year</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Connect</div>
+          <h2>Contact</h2>
+          <p>
+            For academic opportunities, biotechnology, research,
+            collaboration, or professional connections.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <h3>Let's connect.</h3>
+            <p>
+              I'm interested in learning from others, exploring scientific
+              opportunities, and connecting with people working in biology
+              and biotechnology.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a class="button primary" href="mailto:YOUR-EMAIL@example.com">Email me</a>
+            <a class="button" href="https://www.linkedin.com/in/YOUR-USERNAME/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="button" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 Medjy. All rights reserved.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
